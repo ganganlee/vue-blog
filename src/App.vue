@@ -7,6 +7,15 @@
           <p class="user-name">ganganlee</p>
           <p class="user-email">ganganlee@outlook.com</p>
         </div>
+        <div class="menu-wrapper">
+          <ul>
+          	<li>Home</li>
+          	<li>Home</li>
+          	<li>Home</li>
+          	<li>Home</li>
+          	<li>Home</li>
+          </ul>
+        </div>
       </aside>
       <div class="main-wrapper">
         <router-view/>
@@ -65,5 +74,8 @@ export default {
     padding-top: 4px;
     color: #c5cae9;
     font-size: 13px;
+  }
+  .menu-wrapper{
+    padding: 20px 0;
   }
 </style>
