@@ -2,34 +2,36 @@
   <div id="app">
     <div class="container">
       <aside class="left-wrapper">
-        <div class="user-wrapper">
-          <img src="../static/images/face.jpg">
-          <p class="user-name">ganganlee</p>
-          <p class="user-email">ganganlee@outlook.com</p>
-        </div>
-        <div class="menu-wrapper">
-          <ul>
-          	<li class="li-active">
-              <i class="iconfont icon-home"></i>
-              <p>Home</p>
-            </li>
-          	<li class="">
-          	  <i class="iconfont icon-home"></i>
-          	  <p>Home</p>
-          	</li>
-            <li class="">
-              <i class="iconfont icon-home"></i>
-              <p>Home</p>
-            </li>
-            <li class="">
-              <i class="iconfont icon-home"></i>
-              <p>Home</p>
-            </li>
-            <li class="">
-              <i class="iconfont icon-home"></i>
-              <p>Home</p>
-            </li>
-          </ul>
+        <div class="left-wrapper-fixed">
+          <div class="user-wrapper">
+            <img src="../static/images/face.jpg">
+            <p class="user-name">ganganlee</p>
+            <p class="user-email">ganganlee@outlook.com</p>
+          </div>
+          <div class="menu-wrapper">
+            <ul>
+              <li class="li-active">
+                <i class="iconfont icon-home"></i>
+                <p>Home</p>
+              </li>
+              <li class="">
+                <i class="iconfont icon-home"></i>
+                <p>Home</p>
+              </li>
+              <li class="">
+                <i class="iconfont icon-home"></i>
+                <p>Home</p>
+              </li>
+              <li class="">
+                <i class="iconfont icon-home"></i>
+                <p>Home</p>
+              </li>
+              <li class="">
+                <i class="iconfont icon-home"></i>
+                <p>Home</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </aside>
       <div class="main-wrapper">
@@ -45,9 +47,9 @@
           </div>
         </header>
         <router-view/>
+        <div class="footer">@copyright zozoo.net</div>
       </div>
     </div>
-    <div class="footer">@copyright zozoo.net</div>
   </div>
 </template>
 
@@ -75,6 +77,11 @@ export default {
     flex:  0 0 240px;
     width: 240px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  }
+  .left-wrapper-fixed{
+    position: fixed;
+    width: 240px;
+    height: 100%;
   }
   .main-wrapper{
     flex: 1;
@@ -130,6 +137,7 @@ export default {
     line-height: 56px;
     position: fixed;
     top: 0;
+    z-index: 1;
     width: calc(100% - 240px);
   }
   .nav-wrapper i {
@@ -159,4 +167,8 @@ export default {
     margin-top: 5px;
     font-weight: 300;
   }
+  /*.main-wrapper{*/
+    /*height: 100vh;*/
+    /*overflow: scroll;*/
+  /*}*/
 </style>
