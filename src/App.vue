@@ -9,15 +9,41 @@
         </div>
         <div class="menu-wrapper">
           <ul>
-          	<li>Home</li>
-          	<li>Home</li>
-          	<li>Home</li>
-          	<li>Home</li>
-          	<li>Home</li>
+          	<li class="li-active">
+              <i class="iconfont icon-home"></i>
+              <p>Home</p>
+            </li>
+          	<li class="">
+          	  <i class="iconfont icon-home"></i>
+          	  <p>Home</p>
+          	</li>
+            <li class="">
+              <i class="iconfont icon-home"></i>
+              <p>Home</p>
+            </li>
+            <li class="">
+              <i class="iconfont icon-home"></i>
+              <p>Home</p>
+            </li>
+            <li class="">
+              <i class="iconfont icon-home"></i>
+              <p>Home</p>
+            </li>
           </ul>
         </div>
       </aside>
       <div class="main-wrapper">
+        <div class="nav-wrapper">
+          <i class="iconfont icon-close"></i>
+          <i class="iconfont icon-search"></i>
+          <i class="iconfont icon-share"></i>
+        </div>
+        <header>
+          <div class="explain">
+            <h1>gangan Blog</h1>
+            <h5>学习弯道超车技术</h5>
+          </div>
+        </header>
         <router-view/>
       </div>
     </div>
@@ -32,10 +58,14 @@ export default {
 </script>
 
 <style>
+  ul {list-style:none;margin:0px;}
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  html{
+    border: #f6f6f6;
   }
   .container{
     display: flex;
@@ -44,11 +74,11 @@ export default {
   .left-wrapper{
     flex:  0 0 240px;
     width: 240px;
-    background-color: antiquewhite;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
   }
   .main-wrapper{
     flex: 1;
+    background: #f6f6f6;
   }
   .user-wrapper{
     padding: 20px;
@@ -77,5 +107,56 @@ export default {
   }
   .menu-wrapper{
     padding: 20px 0;
+  }
+  .li-active,.menu-wrapper li:hover{
+    background: rgba(0,0,0,0.05);
+    color: #3f51b5;
+  }
+  .menu-wrapper li{
+    display: flex;
+    padding: 0 20px;
+    height: 44px;
+    line-height: 44px;
+    cursor: pointer;
+  }
+  .menu-wrapper li i{
+    flex: 0 0 50px;
+    width: 50px;
+  }
+  .nav-wrapper{
+    height: 56px;
+    background: #3f51b5;
+    color: #fff;
+    line-height: 56px;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 240px);
+  }
+  .nav-wrapper i {
+    display: inline-block;
+    width: 56px;
+    text-align: center;
+  }
+  .nav-wrapper i:nth-child(1){
+    float: left;
+  }
+  .nav-wrapper i:nth-child(2),.nav-wrapper i:nth-child(3){
+    float: right;
+  }
+  header{
+    padding: 104px 15px 48px 100px;
+    color: #fff;
+    background: #3f51b5;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  }
+  header h1{
+    line-height: 48px;
+    font-size: 36px;
+    font-weight: 500;
+  }
+  header h5{
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: 300;
   }
 </style>
