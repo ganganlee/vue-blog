@@ -39,8 +39,13 @@
       <div class="main-wrapper">
         <div class="nav-wrapper" :class="{'nav-shadow':navShadow}" >
           <i class="iconfont" :class="{'icon-close move-right' :menuStatus, 'icon-menu move-left':!menuStatus}" @click="asideStatus()"></i>
-          <i class="iconfont icon-search"></i>
           <i class="iconfont icon-share"></i>
+          <i class="iconfont icon-search search-i" @click="searchStatus = !searchStatus"></i>
+          <transition name="width-fade">
+            <div v-show="searchStatus" class="search-wrapper">
+              <input type="text" placeholder="输入感兴趣的关键字">
+            </div>
+          </transition>
         </div>
         <header>
           <div class="explain">
@@ -69,8 +74,8 @@ export default {
       navShadow   :false,
       //左边菜单栏是否显示
       menuStatus  :true,
-      //导航栏paddingLeft
-      navPadding  :240
+      //搜索框是否显示
+      searchStatus:false
     }
   },
   mounted () {
@@ -212,6 +217,7 @@ export default {
     display: inline-block;
     width: 56px;
     text-align: center;
+    position: relative;
   }
   .nav-wrapper i:nth-child(1){
     float: left;
@@ -257,24 +263,63 @@ export default {
     margin-left: -240px;
   }
 
-  .move-left{
-    animation:moveLeft 0.5s ease;
-    animation-iteration-count:1;
-    animation-fill-mode:forwards;
+  .width-fade-enter-active, .width-fade-leave-active {
+    transition: all .5s ease;
   }
+  .width-fade-enter, .width-fade-leave-to {
+    width: 330px;
+  }
+
   .move-right{
     animation:moveRight 0.5s ease;
     animation-iteration-count:1;
     animation-fill-mode:forwards;
   }
+  .move-left{
+    animation:moveLeft 0.5s ease;
+    animation-iteration-count:1;
+    animation-fill-mode:forwards;
+  }
   @keyframes moveLeft
   {
-    from {left:0px;}
-    to {left:-240px;}
+    from {left:240px;}
+    to {left:0px;}
   }
   @keyframes moveRight
   {
-    from {right:0px;}
-    to {right:240px;}
+    from {left:0px;}
+    to {left:240px;}
+  }
+  .search-wrapper{
+    width: 330px;
+    height: 40px;
+    float: right;
+    margin-right: -56px;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    right: 56px;
+    top: 8px;
+    padding-right: 56px;
+    font-size: 0px;
+  }
+  .search-wrapper input{
+    width: 100%;
+    height: 100%;
+    /*position: absolute;*/
+    top: 0;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+  }
+  ::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+  }
+  input{outline:none}
+  .search-i{
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
   }
 </style>
