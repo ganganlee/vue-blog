@@ -40,12 +40,10 @@
         <div class="nav-wrapper" :class="{'nav-shadow':navShadow}" >
           <i class="iconfont" :class="{'icon-close move-right' :menuStatus, 'icon-menu move-left':!menuStatus}" @click="asideStatus()"></i>
           <i class="iconfont icon-share"></i>
-          <i class="iconfont icon-search search-i" @click="searchStatus = !searchStatus"></i>
-          <transition name="width-fade">
-            <div v-show="searchStatus" class="search-wrapper">
-              <input type="text" placeholder="输入感兴趣的关键字">
-            </div>
-          </transition>
+          <i class="iconfont icon-search search-i" :class="{'search-opacity':searchStatus}" @click="searchStatus = !searchStatus"></i>
+          <div class="search-wrapper" :class="searchStatus?'width-amplify':'width-narrow'">
+            <input type="text" placeholder="输入感兴趣的关键字">
+          </div>
         </div>
         <header>
           <div class="explain">
@@ -290,27 +288,47 @@ export default {
     from {left:0px;}
     to {left:240px;}
   }
+
+  .width-amplify{
+    animation:amplify 0.3s ease;
+    animation-iteration-count:1;
+    animation-fill-mode:forwards;
+  }
+  .width-narrow{
+    animation:narrow 0.3s ease;
+    animation-iteration-count:1;
+    animation-fill-mode:forwards;
+  }
+  @keyframes amplify
+  {
+    from {width:0px;}
+    to {width:330px;}
+  }
+  @keyframes narrow
+  {
+    from {width:330px;}
+    to {width:0px;}
+  }
   .search-wrapper{
     width: 330px;
     height: 40px;
-    float: right;
-    margin-right: -56px;
+    position: absolute;
     color: #fff;
     border-bottom: 2px solid #fff;
     right: 56px;
     top: 8px;
-    padding-right: 56px;
     font-size: 0px;
   }
   .search-wrapper input{
     width: 100%;
     height: 100%;
-    /*position: absolute;*/
+    position: absolute;
     top: 0;
     background: none;
     border: none;
     font-size: 14px;
     color: #fff;
+    margin-right: 56px;
   }
   ::-webkit-input-placeholder {
     color: rgba(255,255,255,0.7);
@@ -321,5 +339,8 @@ export default {
     position: relative;
     z-index: 2;
     cursor: pointer;
+  }
+  .search-opacity{
+    opacity: 0.6;
   }
 </style>
