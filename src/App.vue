@@ -11,17 +11,17 @@
             </div>
             <div class="menu-wrapper">
               <ul>
-                <li class="li-active">
+                <li :class="{'li-active':active=='home'}" @click="changeMenu('home','/home')">
                   <i class="iconfont icon-home"></i>
                   <p>Home</p>
                 </li>
-                <li class="">
+                <li :class="{'li-active':active=='blog'}" @click="changeMenu('blog','/blog')">
                   <i class="iconfont icon-home"></i>
-                  <p>Home</p>
+                  <p>Blog</p>
                 </li>
-                <li class="">
+                <li :class="{'li-active':active=='archives'}" @click="active = 'archives'">
                   <i class="iconfont icon-home"></i>
-                  <p>Home</p>
+                  <p>Archives</p>
                 </li>
                 <li class="">
                   <i class="iconfont icon-home"></i>
@@ -45,12 +45,6 @@
             <input type="text" placeholder="输入感兴趣的关键字">
           </div>
         </div>
-        <header>
-          <div class="explain">
-            <h1>gangan Blog</h1>
-            <h5>学习弯道超车技术</h5>
-          </div>
-        </header>
         <router-view/>
         <div class="footer">
           <div class="copyright">
@@ -73,7 +67,9 @@ export default {
       //左边菜单栏是否显示
       menuStatus  :true,
       //搜索框是否显示
-      searchStatus:false
+      searchStatus:false,
+      //当前选中菜单
+      active      :'home'
     }
   },
   mounted () {
@@ -119,6 +115,17 @@ export default {
           }
         },1)
       }
+    },
+
+    // 路由跳转
+    location(url){
+      this.$router.push({path:url});
+    },
+
+    //单击菜单修改菜单样式
+    changeMenu(active,url){
+      this.active = active;
+      this.location(url)
     }
   },
 }
