@@ -15,17 +15,17 @@
                   <i class="iconfont icon-home"></i>
                   <p>Home</p>
                 </li>
+                <li :class="{'li-active':active=='archives'}" @click="changeMenu('archives','/archives')">
+                  <i class="iconfont icon-home"></i>
+                  <p>Archives</p>
+                </li>
                 <li :class="{'li-active':active=='blog'}" @click="changeMenu('blog','/blog')">
                   <i class="iconfont icon-home"></i>
                   <p>Blog</p>
                 </li>
-                <li :class="{'li-active':active=='archives'}" @click="active = 'archives'">
+                <li :class="{'li-active':active=='tag'}" @click="changeMenu('tag','/tag')">
                   <i class="iconfont icon-home"></i>
-                  <p>Archives</p>
-                </li>
-                <li class="">
-                  <i class="iconfont icon-home"></i>
-                  <p>Home</p>
+                  <p>Tag</p>
                 </li>
                 <li class="">
                   <i class="iconfont icon-home"></i>
@@ -231,7 +231,8 @@ export default {
     float: right;
   }
   header{
-    padding: 104px 15px 48px 100px;
+    padding: 100px 15px 48px 100px;
+    height: 200px;
     color: #fff;
     background: #3f51b5;
     text-shadow: 0 1px 1px rgba(0,0,0,0.2);
