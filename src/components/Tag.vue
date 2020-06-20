@@ -25,6 +25,7 @@
           <p>分类wu</p>
           <p>分类wu</p>
         </div>
+        <div class="tag-more" @click="showTagModel()">...</div>
       </div>
     </header>
     <div class="archives-wrapper">
@@ -91,16 +92,98 @@
         </div>
       </div>
     </div>
+    <div class="tag-model" v-show="isshowTagModel" @click="showTagModel()">
+      <div class="tag-wrapper">
+        <p class="tag-active">分类一</p>
+        <p @click.stop="selectTag($event)">分类一</p>
+        <p @click.stop="selectTag($event)">分类er</p>
+        <p @click.stop="selectTag($event)">分类er</p>
+        <p @click.stop="selectTag($event)">分类er</p>
+        <p @click.stop="selectTag($event)">分类er</p>
+        <p @click.stop="selectTag($event)">分类san</p>
+        <p @click.stop="selectTag($event)">分类san</p>
+        <p @click.stop="selectTag($event)">分类san</p>
+        <p @click.stop="selectTag($event)">分类san</p>
+        <p @click.stop="selectTag($event)">分类si</p>
+        <p @click.stop="selectTag($event)">分类si</p>
+        <p @click.stop="selectTag($event)">分类si</p>
+        <p @click.stop="selectTag($event)">分类si</p>
+        <p @click.stop="selectTag($event)">分类wu</p>
+        <p @click.stop="selectTag($event)">分类wu</p>
+        <p @click.stop="selectTag($event)">分类wu</p>
+        <p @click.stop="selectTag($event)">分类wu</p>
+        <p @click.stop="selectTag($event)">分类wu</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Tag"
+    name: "Tag",
+    data(){
+      return {
+        isshowTagModel:false
+      }
+    },
+    methods:{
+      showTagModel(){
+        this.isshowTagModel = !this.isshowTagModel;
+      },
+      selectTag(event){
+        
+      }
+    }
   }
 </script>
 
 <style scoped>
+  .tag-model{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .tag-wrapper{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    background:#fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  }
+  .tag-wrapper p {
+    padding: 0 15px;
+    margin: 5px;
+    line-height: 32px;
+    cursor: pointer;
+  }
+  .tag-active{
+    color: #fff;
+    background: #ff4081;
+    border-radius: .2em;
+  }
+  .explain{
+    position: relative;
+  }
+  .tag-more{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: #3f51b5;
+    width: 60px;
+    text-align: center;
+    line-height: 40px;
+    height: 44px;
+    cursor: pointer;
+  }
   header{
     padding: 100px 15px !important;
   }
