@@ -11,25 +11,21 @@
             </div>
             <div class="menu-wrapper">
               <ul>
-                <li :class="{'li-active':active=='home'}" @click="changeMenu('home','/home')">
+                <li :class="{'li-active':active=='blog'}" @click="changeMenu('blog','/blog')">
                   <i class="iconfont icon-home"></i>
                   <p>Home</p>
                 </li>
                 <li :class="{'li-active':active=='archives'}" @click="changeMenu('archives','/archives')">
-                  <i class="iconfont icon-home"></i>
+                  <i class="iconfont icon-Archives"></i>
                   <p>Archives</p>
                 </li>
-                <li :class="{'li-active':active=='blog'}" @click="changeMenu('blog','/blog')">
-                  <i class="iconfont icon-home"></i>
-                  <p>Blog</p>
-                </li>
                 <li :class="{'li-active':active=='tag'}" @click="changeMenu('tag','/tag')">
-                  <i class="iconfont icon-home"></i>
+                  <i class="iconfont icon-tag"></i>
                   <p>Tag</p>
                 </li>
                 <li class="">
-                  <i class="iconfont icon-home"></i>
-                  <p>Home</p>
+                  <i class="iconfont icon-git"></i>
+                  <p>Github</p>
                 </li>
               </ul>
             </div>
